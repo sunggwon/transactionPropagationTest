@@ -22,7 +22,7 @@ public class BuyerService {
         try {
             seller.saveRemainingTicketRequired(name, count);
         }catch (Exception e){}
-        mapper.buyTicket(makeDAO(name + "test", count));
+        mapper.buyTicket(makeDAO(name + "_after", count));
     }
 
     @Transactional(noRollbackFor = Exception.class)
@@ -31,7 +31,7 @@ public class BuyerService {
         try {
             seller.saveRemainingTicketRequiredNew(name, count);
         }catch (Exception e){}
-        mapper.buyTicket(makeDAO(name + "test", count));
+        mapper.buyTicket(makeDAO(name + "_after", count));
     }
 
     @Transactional(noRollbackFor = Exception.class)
@@ -40,7 +40,7 @@ public class BuyerService {
         try {
             seller.saveRemainingTicketSupports(name, count);
         }catch (Exception e){}
-        mapper.buyTicket(makeDAO(name + "test", count));
+        mapper.buyTicket(makeDAO(name + "_after", count));
     }
 
     @Transactional(noRollbackFor = Exception.class)
@@ -49,7 +49,7 @@ public class BuyerService {
         try {
             seller.saveRemainingTicketNotSupported(name, count);
         }catch (Exception e){}
-        mapper.buyTicket(makeDAO(name + "test", count));
+        mapper.buyTicket(makeDAO(name + "_after", count));
     }
 
     public void buyTicketNotSupportedNotTransaction(String name, long count){
@@ -57,7 +57,7 @@ public class BuyerService {
         try {
             seller.saveRemainingTicketNotSupported(name, count);
         }catch (Exception e){}
-        mapper.buyTicket(makeDAO(name + "test", count));
+        mapper.buyTicket(makeDAO(name + "_after", count));
     }
 
     @Transactional(noRollbackFor = Exception.class)
@@ -66,7 +66,7 @@ public class BuyerService {
         try {
             mapper.buyTicket(makeDAO(name, count));
         }catch (Exception e){}
-        mapper.buyTicket(makeDAO(name + "test", count));
+        mapper.buyTicket(makeDAO(name + "_after", count));
     }
 
     public void buyTicketMandatoryNoTransaction(String name, long count){
@@ -74,16 +74,14 @@ public class BuyerService {
         try {
             mapper.buyTicket(makeDAO(name, count));
         }catch (Exception e){}
-        mapper.buyTicket(makeDAO(name + "test", count));
+        mapper.buyTicket(makeDAO(name + "_after", count));
     }
 
     @Transactional(noRollbackFor = Exception.class)
     public void buyTicketNever(String name, long count){
         mapper.buyTicket(makeDAO(name, count));
-        try {
-            seller.saveRemainingTicketNever(name, count);
-        }catch (Exception e){}
-        mapper.buyTicket(makeDAO(name + "test", count));
+        seller.saveRemainingTicketNever(name, count);
+        mapper.buyTicket(makeDAO(name + "_after", count));
     }
 
     private BuyTicketDAO makeDAO(String name, long count){

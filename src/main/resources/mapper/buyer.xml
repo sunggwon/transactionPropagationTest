@@ -10,4 +10,12 @@
         insert into buyticket (id, name, count)
         values(#{id}, #{name}, #{count})
     </insert>
+
+    <select id="getBuyTicket" resultType="com.example.transactionpropagationtest.model.BuyTicketDAO">
+        select * from buyticket;
+    </select>
+
+    <delete id="deleteAllRows">
+        delete from buyticket;
+    </delete>
 </mapper>

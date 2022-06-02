@@ -10,4 +10,12 @@
         insert into remainingtickets (id, name, count)
         values(#{id}, #{name}, #{count})
     </insert>
+
+    <select id="getRemainingTicket" resultType="com.example.transactionpropagationtest.model.RemainingTicketDAO">
+        select * from remainingtickets;
+    </select>
+
+    <delete id="deleteAllRows">
+        delete from remainingtickets;
+    </delete>
 </mapper>
