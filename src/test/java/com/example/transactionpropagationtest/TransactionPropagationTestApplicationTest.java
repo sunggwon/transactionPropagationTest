@@ -111,7 +111,7 @@ public class TransactionPropagationTestApplicationTest {
     }
 
     @Test
-    @DisplayName("NotSupported 테스트, 부모 트랜잭션이 없는 경우 트랜잭션이 없는 것과 동일")
+    @DisplayName("NotSupported 테스트, 부모 트랜잭션이 없는 경우, 트랜잭션이 없는 것과 동일")
     void notSupportedNoTransaction() {
         //given
         String name = "NotSupportedNoTransaction";
@@ -132,7 +132,7 @@ public class TransactionPropagationTestApplicationTest {
     }
 
     @Test
-    @DisplayName("NotSupported 테스트, 트랜잭션이 없는 것과 동일")
+    @DisplayName("NotSupported 테스트, 부모 트랜잭션이 있는 경우, 트랜잭션이 없는 것과 동일")
     void notSupported() {
         //given
         String name = "NotSupported";
