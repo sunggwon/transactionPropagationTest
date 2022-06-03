@@ -37,14 +37,21 @@ public class TestController {
     @ResponseBody
     @PostMapping("/test/supportsNotTransaction")
     public ResponseEntity<String> buyTicketSupportsNoTransaction(String name, long count){
-        service.buyTicketNotSupportedNotTransaction(name, count);
+        service.buyTicketNotSupportedNoTransaction(name, count);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
     @ResponseBody
-    @PostMapping("/test/notSupported")
+    @PostMapping("/test/notSupportedTransaction")
     public ResponseEntity<String> buyTicketNotSupported(String name, long count){
         service.buyTicketNotSupported(name, count);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
+
+    @ResponseBody
+    @PostMapping("/test/notSupportedNoTransaction")
+    public ResponseEntity<String> buyTicketNotSupportedNoTransaction(String name, long count){
+        service.buyTicketNotSupportedNoTransaction(name, count);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
